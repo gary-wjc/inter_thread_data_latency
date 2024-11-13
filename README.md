@@ -3,7 +3,7 @@ A simple C++ program to test averaged write-to-read latency and bandwidth among 
 
 # tested platforms
 
-| CPU | latency on the same core(μs) | latency between cores(μs) | bandwidth between clusters(GB/s) |
+| CPU | latency between cores(μs) | bandwidth between clusters(GB/s) |
 | --- | --- | --- | --- |
 | spacemit-k1 1.6GHz inside cluster | 93 | 2.0 |
 | spacemit-k1 1.6GHz cross clusters | 246 | 1.0 |
