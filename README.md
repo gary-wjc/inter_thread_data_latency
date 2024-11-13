@@ -1,14 +1,18 @@
 # inter_thread_data_latency
-A simple C++ program to test averaged write-to-read latency between 2 threads.
+A simple C++ program to test averaged write-to-read latency and bandwidth among threads.
 
 # tested platforms
 
-| CPU | latency on the same core(μs) | latency between cores on the same cluster(μs) | latency between clusters(μs) |
+| CPU | latency on the same core(μs) | latency between cores(μs) | bandwidth between clusters(GB/s) |
 | --- | --- | --- | --- |
-| i9-10980xe default freq. | 0.02 | 0.09~0.10 | N.A. |
-| e5-2680 v4 default freq. | 0.03 | 0.09~0.12 | 0.17~0.26(numa nodes) |
-| spacemit k1 1.6GHz | N.A. | 0.13 | 0.24 |
-| RockChip RK3562 1.4GHz | N.A. | 0.035 | N.A. |
-| Qualcomm APQ8053 2.2GHz DDR3-1866 | N.A. | 0.024 | 0.17 |
-| RockChip RK3588 A55x4 1.8GHz | N.A. | 0.067 | 0.070 (to A76) |
-| RockChip RK3588 A76x4 2.3GHz | N.A. | N.A. | 0.073 (to A76) |
+| spacemit-k1 1.6GHz inside cluster | 93 | 2.0 |
+| spacemit-k1 1.6GHz cross clusters | 246 | 1.0 |
+| i3-m380 2.5GHz in a physical core | 36 | 15 |
+| i3-m380 2.5GHz cross physical cores | 89 | 7 |
+| APQ8053 2.2GHz inside cluster | 69 | 6 |
+| APQ8053 2.2GHz cross clusters | 111 | 2.0 |
+| RK3588 A55x4 1.8GHz | 120 | 3.3 |
+| RK3588 A76x4 2.26GHz | 117 | 7 |
+| RV1109 1.51GHz | 87 | 2.1 |
+
+The data above are tested with a modified program where the implementation of "all elements incremented by 1" in Kernel.cpp changes from std::transform to SIMD intrinsics(x64) or inline assembly(armv7a-neon and rvv 1.0).
