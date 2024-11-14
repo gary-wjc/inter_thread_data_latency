@@ -3,7 +3,7 @@ A simple C++ program to test averaged write-to-read latency and bandwidth among 
 
 # tested platforms
 
-| CPU | latency between cores(μs) | bandwidth between clusters(GB/s) |
+| CPU | latency between cores(ns) | bandwidth between clusters(GB/s) |
 | --- | --- | --- |
 | spacemit-k1 1.6GHz inside cluster | 93 | 2.0 |
 | spacemit-k1 1.6GHz cross clusters | 246 | 1.0 |
@@ -14,5 +14,8 @@ A simple C++ program to test averaged write-to-read latency and bandwidth among 
 | RK3588 A55x4 1.8GHz | 120 | 3.3 |
 | RK3588 A76x4 2.26GHz | 117 | 7 |
 | RV1109 1.51GHz | 87 | 2.1 |
+| R9-5950X PBO same physical core | 20 | 55 |
+| R9-5950X PBO inside CCD | 70 | 50 |
+| R9-5950X PBO cross CCD fclk=1.6GHz | 252 | 15 |
 
 The data above are tested with a modified program where the implementation of "all elements incremented by 1" in Kernel.cpp changes from std::transform to SIMD intrinsics(x64) or inline assembly(armv7a-neon and rvv 1.0).
