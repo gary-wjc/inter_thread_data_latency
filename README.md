@@ -14,6 +14,7 @@ A simple C++ program to test averaged write-to-read latency and bandwidth among 
 | RK3588 A55x4 1.8GHz | 120 | 3.3 |
 | RK3588 A76x4 2.26GHz | 117 | 7 |
 | RV1109 1.51GHz | 87 | 2.1 |
+| AllWinner H3 0.48GHz | 224 | 0.65 |
 | R9-5950X PBO same physical core | 20 | 55 |
 | R9-5950X PBO inside CCD | 70 | 50 |
 | R9-5950X PBO cross CCD fclk=1.6GHz | 252 | 15 |
