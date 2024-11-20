@@ -18,5 +18,7 @@ A simple C++ program to test averaged write-to-read latency and bandwidth among 
 | R9-5950X PBO same physical core | 20 | 55 |
 | R9-5950X PBO inside CCD | 70 | 50 |
 | R9-5950X PBO cross CCD fclk=1.6GHz | 252 | 15 |
+| i9-10980XE same physical core | 25 | 131 |
+| i9-10980XE between cores (mesh=2.4GHz) | 114 | 10 |
 
 The data above are tested with a modified program where the implementation of "all elements incremented by 1" in Kernel.cpp changes from std::transform to SIMD intrinsics(x64) or inline assembly(armv7a-neon and rvv 1.0).
